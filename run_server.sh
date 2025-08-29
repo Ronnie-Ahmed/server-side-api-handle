@@ -8,14 +8,17 @@ if [ -f "$PROJECT_DIR/.env" ]; then
     source "$PROJECT_DIR/.env"
 fi
 
-# Log directory (inside current project folder)
+# Ensure cargo is in PATH
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Log directory
 LOG_DIR="$PROJECT_DIR/logs"
 mkdir -p "$LOG_DIR"
 
 # Log file
 LOG_FILE="$LOG_DIR/server.log"
 
-# Run server in the background
+# Run server in background
 nohup cargo run --release > "$LOG_FILE" 2>&1 &
 
 # Save PID
