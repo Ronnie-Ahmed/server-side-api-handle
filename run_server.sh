@@ -19,7 +19,7 @@ mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/server.log"
 
 # Run server in background
-nohup cargo run --release > "$LOG_FILE" 2>&1 &
+nohup /home/gpsproxy/.cargo/bin/cargo run --release > "$LOG_FILE" 2>&1 &
 
 # Save PID
 PID_FILE="$LOG_DIR/server.pid"
