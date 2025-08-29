@@ -1,0 +1,36 @@
+[package]
+name = "server-side-api"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# Web framework
+axum = { version = "0.8.4", features = ["macros"] }
+tokio = { version = "1", features = ["full"] }
+
+# Serialization & deserialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# HTTP client
+reqwest = { version = "0.12.1", features = ["json", "rustls-tls"] }
+
+# Concurrency & caching
+dashmap = "5.5"   # ✅ latest compatible
+chrono = { version = "0.4", features = ["serde"] }
+
+# Middleware & layers
+tower = { version = "0.4", features = ["full"] }
+
+# Config & env
+dotenv = "0.15"
+config = "0.14"   # ✅ load structured configs from YAML/JSON/TOML + env vars
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0" # ✅ for custom error types (optional, but recommended)
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+tower-http = { version = "0.6", features = ["trace", "cors"] }
